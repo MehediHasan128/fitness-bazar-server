@@ -9,11 +9,23 @@ const createCategory = async(req: Request, res: Response) =>{
     return res.status(200).json({
         success: true,
         statusCode: 200,
-        message: 'Create',
+        message: 'Create product successfully',
         data: result
     })
 };
 
+const getAllCategory = async(req: Request, res: Response) =>{
+    const result = await CategoryService.getAllCategoryFromDB();
+
+    return res.status(200).json({
+        success: true,
+        statusCode: 200,
+        message: 'Get all product successfully',
+        data: result
+    })
+}
+
 export const CategoryController = {
-    createCategory
+    createCategory,
+    getAllCategory
 }

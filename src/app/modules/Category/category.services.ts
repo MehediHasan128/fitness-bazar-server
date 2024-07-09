@@ -35,6 +35,13 @@ const createCategoryIntoDB = async (payload: TProduct) =>{
 
 };
 
+
+const getAllCategoryFromDB = async () =>{
+    const result = await Category.find();
+    return result;
+}
+
 export const CategoryService = {
-    createCategoryIntoDB
+    createCategoryIntoDB,
+    getAllCategoryFromDB
 }
