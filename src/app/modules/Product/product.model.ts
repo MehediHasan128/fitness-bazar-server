@@ -14,12 +14,12 @@ const ProductSchema = new Schema<TProduct>({
         type: String,
         required: true,
       },
-      images: {
+      imageUrl: {
         type: String,
         required: true,
       },
       quantity: {
-        type: String,
+        type: Number,
         required: true,
       },
       category: {
@@ -28,6 +28,10 @@ const ProductSchema = new Schema<TProduct>({
       },
       categoryId: {
         type: Schema.Types.ObjectId
+      },
+      isDeleted: {
+        type: Boolean,
+        default: false
       }
 });
 
