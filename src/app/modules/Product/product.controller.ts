@@ -15,7 +15,8 @@ const getProduct = async (req: Request, res: Response) =>{
 };
 
 const getAllProduct = async (req: Request, res: Response) =>{
-    const result = await ProductServices.getAllProductFromDB();
+
+    const result = await ProductServices.getAllProductFromDB(req.query);
 
     return res.status(200).json({
         success: true,
@@ -25,7 +26,34 @@ const getAllProduct = async (req: Request, res: Response) =>{
     })
 }
 
+const updateProduct = async(req: Request, res: Response) => {
+    const {productId} = req.params;
+    const updatedData = req.body;
+    const result = await ProductServices.updateProductById(productId, updatedData);
+
+    return res.status(200).json({
+        success: true,
+        statusCode: 200,
+        message: 'Update product successfully',
+        data: result
+    })
+}
+
+const deleteProduct = async(req: Request, res: Response) => {
+    const {productId} = req.params;
+    const result = await ProductServices.deleteProductById(productId)
+
+    return res.status(200).json({
+        success: true,
+        statusCode: 200,
+        message: 'Product successfully deleted',
+        data: result
+    })
+}
+
 export const ProductController = {
     getProduct,
-    getAllProduct
+    getAllProduct,
+    updateProduct,
+    deleteProduct
 }

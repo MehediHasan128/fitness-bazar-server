@@ -6,6 +6,10 @@ const categorySchema = new Schema<TCategory>({
         type: String,
         required: true,
       },
+      categoryImage: {
+        type: String,
+        required: true
+      }
 });
 
 

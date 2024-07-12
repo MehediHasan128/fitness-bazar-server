@@ -12,6 +12,7 @@ const createCategoryIntoDB = async (payload: TProduct) =>{
 
         // set category name
         categoryData.categoryName = payload.category;
+        categoryData.categoryImage = payload.imageUrl;
 
         // find the the category exist or not
         const newCategory = await Category.create(categoryData);
